@@ -1,0 +1,16 @@
+site_name: Security Knowledge Base
+
+theme:
+  name: material
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.superfences
