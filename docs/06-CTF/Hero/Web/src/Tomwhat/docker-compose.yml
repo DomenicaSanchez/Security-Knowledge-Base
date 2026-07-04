@@ -1,0 +1,9 @@
+services:
+  tomcat:
+    build:
+      context: challenge
+      dockerfile: Dockerfile
+    container_name: tomwhat
+    ports:
+      - "8081:8080"       # Burp listen on 8080.. so 8081 seems to be a good choice :)
+    restart: unless-stopped

