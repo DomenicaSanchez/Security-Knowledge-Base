@@ -1,4 +1,4 @@
-# `scripts/length_extension_attack`
+#script/length_extension_attack 
 
 ### 🕵️ Information
 
