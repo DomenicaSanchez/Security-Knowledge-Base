@@ -9,7 +9,7 @@ El reto **Small trouble** presenta una implementación de RSA con una grave fall
 - **Python 3**
 - **Librería `owiener`** (para automatizar el cálculo de fracciones continuas)
 - **PyCryptodome** (`Crypto.Util.number` para conversión de bytes)
-
+kali 
 ## ⚙️ Methodology
 
 ### 1. Reconocimiento Inicial

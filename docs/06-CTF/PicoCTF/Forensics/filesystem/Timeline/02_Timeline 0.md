@@ -1,4 +1,4 @@
-# 🕵️ Categoría: Forense / Metadatos / Imagen de disco
+# 🕵️ Categoría: Forense / Metadatos / FileSystem
 
 ---
 
@@ -45,7 +45,7 @@ La segunda pista indica que debemos buscar archivos cuyos timestamps hayan sido 
 ### 1. Reconocimiento inicial
 
 Descomprimimos el archivo el archivo `.img.gz` 
-![[descomprimir.png]]
+![[02_descomprimir.png]]
 
 Después de descomprimir el archivo `.img.gz`, se obtuvo la imagen:
 
@@ -60,7 +60,7 @@ file partition4.img
 ```
 
 El resultado confirmó que se trataba de un sistema de archivos **EXT4**:
-![[tipo_sitema_archivos.png]]
+![[02_tipo_sitema_archivos.png]]
 
 Posteriormente se comprobó la estructura de particiones:
 
@@ -68,7 +68,7 @@ Posteriormente se comprobó la estructura de particiones:
 fdisk -l partition4.img
 ```
 
-![[estructura_particiones.png]]
+![[02_estructura_particiones.png]]
 ---
 
 ### 2. Creación de la línea temporal MAC
@@ -83,7 +83,7 @@ Por ello, se utilizó `fls` para generar el archivo de cuerpo con la informació
 fls -r -m / partition4.img > partition.txt
 ```
 
-![[cuerpo_sistema_archivos.png]]
+![[02_cuerpo_sistema_archivos.png]]
 
 
 Posteriormente se utilizó `mactime` para generar la línea temporal:
@@ -92,7 +92,7 @@ Posteriormente se utilizó `mactime` para generar la línea temporal:
 mactime -b partition.txt > timeline.txt
 ```
 
-![[mactime.png]]
+![[02_mactime.png]]
 
 Aunque `mactime` mostró advertencias relacionadas con separadores de paquetes de Perl obsoletos, el archivo `timeline.txt` se generó correctamente.
 
@@ -111,7 +111,7 @@ grep -E '\b(18|19)[0-9]{2}\b' timeline.txt
 ```
 
 Entre los resultados apareció el siguiente registro:
-![[inspeccion_timeline.png]]
+![[02_inspeccion_timeline.png]]
 
 El archivo sospechoso identificado fue:
 
@@ -138,7 +138,7 @@ istat partition4.img 4945
 ```
 
 La información obtenida indicó:
-![[inode_4945.png]]
+![[02_inode_4945.png]]
 
 ```
 
@@ -165,7 +165,7 @@ Para obtener el contenido real del archivo asociado al inode `4945`, se utilizó
 icat partition4.img 4945 > p4945.txt
 ```
 
-![[revisar_inode.png]]
+![[02_revisar_inode.png]]
 
 Se obtuvo:
 
@@ -181,7 +181,7 @@ El contenido tenía el formato característico de una cadena codificada en **Bas
 
 Se utilizó `base64` para decodificar la cadena:
 
-![[decodificar_b64.png]]
+![[02_decodificar_b64.png]]
 
 El resultado fue:
 
@@ -196,3 +196,5 @@ El resultado fue:
 ```text
 71m311n3_0u7113r_h3Jr_43a2e7af
 ```
+
+**Reto resuelto por:** [Kevin Villacis](https://github.com/kevin26720)
