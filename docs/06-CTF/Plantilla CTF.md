@@ -28,3 +28,6 @@ The challenge indicates that the real information is hidden in the metadata of t
 ____
 ## 🏁 Flag
 (pon la flag)
+
+---
+**Reto resuelto por:** [xxxx](https://github.com/xxxxx)
