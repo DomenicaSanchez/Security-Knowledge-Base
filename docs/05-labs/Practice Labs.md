@@ -16,3 +16,14 @@ I also practice with Hack the box to reinforce my skills throught hands-on labs.
 |                       |               |           |                  |
 |                       |               |           |                  |
 | Sherlocks             | [[Brutus]]    | Very Easy |                  |
+
+---
+
+### 🌐 PortSwigger Web Security Academy
+
+Practice labs focused on web vulnerabilities using **Burp Suite**:
+
+| Category | Lab Name | Level | Status |
+|---|---|---|---|
+| Access Control | [[User role controlled by request parameter]] | Apprentice | Solved ✅ |
+
